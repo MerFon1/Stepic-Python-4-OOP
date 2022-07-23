@@ -19,10 +19,24 @@ class LinkedList:
 
 
     def remove_obj(self):
+        if self.tail is None:
+            return
 
+        prev = self.tail.get_prev()
+        if prev:
+            prev.set_next(None)
+
+        self.tail = None
+        if self.tail is None:
+            self.head = None
 
     def get_data(self):
-
+        s = []
+        h = self.head
+        while h:
+            s.append(h.get_data())
+            h = h.get_next()
+        return s
 
 class ObjList:
 
@@ -47,3 +61,9 @@ class ObjList:
 
     def get_data(self):
         return self.__data
+
+lst = LinkedList()
+lst.add_obj(ObjList("данные 1"))
+lst.add_obj(ObjList("данные 2"))
+lst.add_obj(ObjList("данные 3"))
+print(lst.get_data())
