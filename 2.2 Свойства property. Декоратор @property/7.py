@@ -40,8 +40,7 @@ class PhoneBook:
     data = []
 
     def add_phone(self,phone):
-        self.contact = phone
-        self.data.append(self.contact.number)
+        self.data.append(phone)
 
     def remove_phone(self,indx):
         self.data.pop(indx)
@@ -50,4 +49,8 @@ class PhoneBook:
         return self.data
 
 
-
+p = PhoneBook()
+p.add_phone(PhoneNumber(12345678901, "Сергей Балакирев"))
+p.add_phone(PhoneNumber(21345678901, "Панда"))
+phones = p.get_phone_list()
+print(phones)
